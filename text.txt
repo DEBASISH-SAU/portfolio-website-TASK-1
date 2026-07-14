@@ -1,0 +1,15 @@
+# Project Requirements - Portfolio Website
+# Developers Arena Week 1 Task
+
+# No external dependencies required
+# Pure HTML5 and CSS3 implementation
+
+# Browser Requirements:
+# Chrome 90+
+# Firefox 88+
+# Safari 14+
+# Edge 90+
+
+# Development Tools (Optional):
+# VS Code with Live Server extension
+# Git for version control
