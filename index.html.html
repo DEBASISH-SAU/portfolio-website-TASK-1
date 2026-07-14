@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Debasish Sau - Personal Portfolio Website | IIT Kharagpur B.Tech CSE Student">
+    <meta name="author" content="Debasish Sau">
+    <meta name="keywords" content="Debasish Sau, IIT Kharagpur, B.Tech CSE, Web Developer, Portfolio">
+    <title>Debasish Sau | Portfolio - IIT Kharagpur</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-img-header {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img-header:hover {
+            transform: scale(1.05);
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+        
+        header .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.95;
+        }
+        
+        header .college {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+        }
+        
+        nav {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            background: white;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: #1e3c72;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 4px solid #2a5298;
+            display: inline-block;
+        }
+        
+        h3 {
+            color: #2a5298;
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        
+        .about-profile-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .about-details {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .about-details ul {
+            list-style: none;
+        }
+        
+        .about-details li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .about-details li:last-child {
+            border-bottom: none;
+        }
+        
+        .about-details strong {
+            color: #1e3c72;
+            display: inline-block;
+            width: 120px;
+        }
+        
+        /* Skills Section */
+        .skills-category {
+            margin-bottom: 2rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .skill-card .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-level {
+            background: rgba(255,255,255,0.3);
+            height: 6px;
+            border-radius: 3px;
+            margin-top: 0.5rem;
+        }
+        
+        .skill-level-fill {
+            background: white;
+            height: 100%;
+            border-radius: 3px;
+        }
+        
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            border-color: #2a5298;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .project-card h4 {
+            color: #1e3c72;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tech-tag {
+            background: #e9ecef;
+            color: #2a5298;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #2a5298;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            color: #1e3c72;
+            transform: translateX(5px);
+        }
+        
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+        
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(5px);
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+        
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            color: #1e3c72;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2a5298;
+            box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.1);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #2a5298;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background: #1e3c72;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .about-grid,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 2rem 1rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 80%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <img src="images/profile.jpg" alt="Debasish Sau - IIT Kharagpur" class="profile-img-header">
+            <h1>Debasish Sau</h1>
+            <p class="subtitle">B.Tech in Computer Science & Engineering</p>
+            <p class="college">🏛️ Indian Institute of Technology, Kharagpur</p>
+            
+            <nav>
+                <a href="#about">📖 About</a>
+                <a href="#skills">💻 Skills</a>
+                <a href="#projects">🚀 Projects</a>
+                <a href="#education">🎓 Education</a>
+                <a href="#gallery">📸 Gallery</a>
+                <a href="#contact">📞 Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <main>
+            <!-- About Section -->
+            <section id="about">
+                <h2>About Me</h2>
+                <div class="about-grid">
+                    <div>
+                        <img src="images/profile.jpg" alt="Debasish Sau Profile" class="about-profile-img">
+                    </div>
+                    <div>
+                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                            Hello! I'm <strong>Debasish Sau</strong>, a passionate and dedicated B.Tech student at 
+                            <strong>IIT Kharagpur</strong>, one of India's premier engineering institutions. 
+                            I'm pursuing Computer Science and Engineering with a deep interest in web development, 
+                            software engineering, and cutting-edge technologies.
+                        </p>
+                        <p>
+                            My journey in technology started with curiosity about how websites and applications work. 
+                            Today, I'm actively building my skills in full-stack development, data structures, 
+                            and algorithms. I believe in continuous learning and practical implementation of concepts.
+                        </p>
+                        
+                        <div class="about-details">
+                            <h3>Personal Information</h3>
+                            <ul>
+                                <li><strong>📛 Full Name:</strong> Debasish Sau</li>
+                                <li><strong>🏫 College:</strong> IIT Kharagpur</li>
+                                <li><strong>📚 Course:</strong> B.Tech in Computer Science & Engineering (CSE)</li>
+                                <li><strong>📧 Email:</strong> debasishsau@gmail.com</li>
+                                <li><strong>📱 Phone:</strong> +91 8434153202</li>
+                                <li><strong>📍 Location:</strong> Kharagpur, West Bengal, India</li>
+                                <li><strong>🌐 Languages:</strong> English, Hindi, Bengali</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills">
+                <h2>My Skills</h2>
+                
+                <div class="skills-category">
+                    <h3>💻 Programming Languages</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-icon">🐍</div>
+                            <h4>Python</h4>
+                            <div class="skill-level">
+                                <div class="skill-level-fill" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">☕</div>
+                            <h4>Java</h4>
+                            <div class="skill-level">
+                                <div class="skill-level-fill" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">⚡</div>
+                            <h4>C/C++</h4>
+                            <div class="skill-level">
+                                <div class="skill-level-fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">📜</div>
+                            <h4>JavaScript</h4>
+                            <div class="skill-level">
+                                <div class="skill-level-fill" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>🌐 Web Technologies</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-icon">📄</div>
+                            <h4>HTML5</h4>
+                            <div class="skill-level">
+                                <div class="skill-level-fill" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">🎨</div>
+                            <h4>CSS3</h4>
+                            <div class="skill-level">
+                                <div class="skill-level-fill" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">⚛️</div>
+                            <h4>React.js</h4>
+                            <div class="skill-level">
+                                <div class="skill-level-fill" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">🟢</div>
+                            <h4>Node.js</h4>
+                            <div class="skill-level">
+                                <div class="skill-level-fill" style="width: 55%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>🛠️ Tools & Technologies</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-icon">🗄️</div>
+                            <h4>MySQL</h4>
+                            <div class="skill-level">
+                                <div class="skill-level-fill" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">🔧</div>
+                            <h4>Git & GitHub</h4>
+                            <div class="skill-level">
+                                <div class="skill-level-fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">🐧</div>
+                            <h4>Linux</h4>
+                            <div class="skill-level">
+                                <div class="skill-level-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">📊</div>
+                            <h4>Data Structures</h4>
+                            <div class="skill-level">
+                                <div class="skill-level-fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>🤝 Soft Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-icon">💬</div>
+                            <h4>Communication</h4>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">👥</div>
+                            <h4>Teamwork</h4>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">🎯</div>
+                            <h4>Problem Solving</h4>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">⏰</div>
+                            <h4>Time Management</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h4>🎨 Personal Portfolio Website</h4>
+                        <p>A responsive portfolio website built with HTML5 and CSS3, featuring semantic structure, navigation, and contact form.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Responsive Design</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+
+                    <div class="project-card">
+                        <h4>🧮 Scientific Calculator</h4>
+                        <p>An interactive calculator application with advanced mathematical functions built using JavaScript.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+
+                    <div class="project-card">
+                        <h4>📊 Data Analysis Tool</h4>
+                        <p>Python-based data analysis application with visualization capabilities for processing datasets.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+
+                    <div class="project-card">
+                        <h4>🗂️ Student Management System</h4>
+                        <p>A CRUD application for managing student records with database integration and user interface.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">JDBC</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education">
+                <h2>Education</h2>
+                <div style="margin-top: 2rem;">
+                    <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 2rem; border-radius: 15px; border-left: 5px solid #2a5298;">
+                        <h3 style="color: #1e3c72; margin-top: 0;">🎓 B.Tech in Computer Science & Engineering</h3>
+                        <p style="font-size: 1.2rem; color: #2a5298; font-weight: 600;">Indian Institute of Technology, Kharagpur</p>
+                        <p><strong>Duration:</strong> 2023 - 2027 (Expected)</p>
+                        <p><strong>Current Year:</strong> 2nd Year</p>
+                        <p><strong>Key Subjects:</strong> Data Structures, Algorithms, Operating Systems, Computer Networks, Database Management, Web Technologies</p>
+                        <p><strong>Activities:</strong> Coding Club Member, Tech Fest Participant, Open Source Contributor</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="gallery">
+                <h2>Gallery</h2>
+                <p style="margin-bottom: 1rem;">A glimpse into my life at IIT Kharagpur and my work:</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500" alt="Coding Workspace">
+                        <div class="gallery-overlay">My Coding Workspace</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90910f4ed?w=500" alt="IIT Kharagpur Campus">
+                        <div class="gallery-overlay">IIT Kharagpur Campus</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500" alt="Tech Events">
+                        <div class="gallery-overlay">Hackathon Participation</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500" alt="Programming">
+                        <div class="gallery-overlay">Programming Projects</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <h2>Get In Touch</h2>
+                <p style="margin-bottom: 2rem; font-size: 1.1rem;">
+                    I'm always open to discussing new projects, creative ideas, or opportunities. 
+                    Feel free to reach out!
+                </p>
+                
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-info-item">
+                            <span class="contact-icon">📧</span>
+                            <div>
+                                <strong>Email</strong><br>
+                                debasishsau@gmail.com
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <span class="contact-icon">📱</span>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +91 8434153202
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <strong>Location</strong><br>
+                                IIT Kharagpur, West Bengal
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <span class="contact-icon">🎓</span>
+                            <div>
+                                <strong>College</strong><br>
+                                IIT Kharagpur - B.Tech CSE
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder="Enter your full name"
+                                required
+                                minlength="2"
+                                maxlength="50"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="your.email@example.com"
+                                required
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="+91 XXXXXXXXXX"
+                                pattern="[0-9]{10}"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input 
+                                type="text" 
+                                id="subject" 
+                                name="subject" 
+                                placeholder="What is this regarding?"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="5" 
+                                placeholder="Write your message here..."
+                                required
+                                minlength="10"
+                                maxlength="500"
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message ✉️</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p style="font-size: 1.5rem; margin-bottom: 1rem;">Debasish Sau</p>
+        <p>B.Tech CSE | IIT Kharagpur</p>
+        
+        <div class="footer-links">
+            <a href="mailto:debasishsau@gmail.com">📧 Email</a>
+            <a href="tel:+918434153202">📱 Call</a>
+            <a href="https://github.com/debasishsau" target="_blank">💻 GitHub</a>
+            <a href="https://linkedin.com/in/debasishsau" target="_blank">💼 LinkedIn</a>
+        </div>
+        
+        <p style="margin-top: 1.5rem; opacity: 0.8;">
+            &copy; 2024 Debasish Sau. All rights reserved.<br>
+            Created as part of Web Development Internship - Week 1 Task
+        </p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" title="Back to Top">↑</a>
+</body>
+</html>
